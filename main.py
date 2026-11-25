@@ -19,6 +19,9 @@ RANT = (
 
 
 def main() -> int:
+    # Self-check against the competition gate: 1-400 characters, UTF-8.
+    if not 1 <= len(RANT) <= 400:
+        raise ValueError(f"rant must be 1-400 characters, got {len(RANT)}")
     output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(output_dir, exist_ok=True)
     path = os.path.join(output_dir, "entry.txt")
